@@ -1,12 +1,12 @@
 import "./ExpenseItem_CourseTemplate.css";
 
-function ExpenseItem() {
+function ExpenseItem(props) {
   return (
     <article className="expense-item">
-      <div>January 18th 2022</div>
+      <div>{props.date}</div>
       <div className="expense-item__description">
-        <h2>Car Insurance</h2>
-        <p className="expense-item__price">$90.00</p>
+        <h2>{props.title}</h2>
+        <p className="expense-item__price">{props.amount}</p>
       </div>
     </article>
   );
