@@ -1,5 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
-import "./Expenses.css";
+import "./Expenses_CourseTemplate.css";
 
 function Expenses(props) {
   return (
