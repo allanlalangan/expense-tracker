@@ -1,4 +1,5 @@
 import "./ExpenseItem_CourseTemplate.css";
+import ExpenseDate from "./ExpenseDate";
 
 function ExpenseItem(props) {
   const { id, title, amount, date } = props;
