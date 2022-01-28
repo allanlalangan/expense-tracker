@@ -3,9 +3,10 @@ import ExpenseDate from "./ExpenseDate";
 
 function ExpenseItem(props) {
   const { id, title, amount, date } = props;
+
   return (
     <article key={id} className="expense-item">
-      <div>{date.toString().substring(4, 15)}</div>
+      {<ExpenseDate date={date} />}
       <div className="expense-item__description">
         <h2>{title}</h2>
         <p className="expense-item__price">${amount}</p>
