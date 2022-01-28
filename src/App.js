@@ -5,9 +5,9 @@ function App() {
   return (
     <div>
       <h1>Expense Tracker</h1>
-      <ExpenseItem> </ExpenseItem>
-      <ExpenseItem> </ExpenseItem>
-      <ExpenseItem> </ExpenseItem>
+      {expenses.map((expense) => {
+        return <ExpenseItem {...expense} />;
+      })}
     </div>
   );
 }
