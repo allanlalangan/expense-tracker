@@ -1,10 +1,11 @@
 import Expenses from "./components/Expenses/Expenses";
 import expensesData from "./expensesData";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   return (
     <div>
-      <h2>Expense Tracker</h2>
+      <NewExpense />
       <Expenses data={expensesData} />
     </div>
   );
