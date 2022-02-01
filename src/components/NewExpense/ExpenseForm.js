@@ -9,6 +9,16 @@ const ExpenseForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const newExpense = {
+      id: Date.now().toString(),
+      title,
+      amount,
+      date: new Date(date),
+    };
+
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -47,9 +57,7 @@ const ExpenseForm = () => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit" onClick={submitHandler}>
-          Add Expense
-        </button>
+        <button type="submit">Add Expense</button>
       </div>
     </form>
   );
