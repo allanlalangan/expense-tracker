@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm_CourseTemplate.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //MULTIPLE STATES for each input
   const [title, setEnteredTitle] = useState("");
   const [amount, setEnteredAmount] = useState("");
@@ -16,6 +16,7 @@ const ExpenseForm = () => {
       date: new Date(date),
     };
 
+    props.onSubmitExpense(newExpense);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
