@@ -9,17 +9,36 @@ const Expenses = (props) => {
   const selectYearHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
-  return (
-    <Card className="expenses">
-      <ExpensesFilter
-        selectedOption={filteredYear}
-        onSelectYear={selectYearHandler}
-      />
-      {props.data.map((expense) => {
-        return <ExpenseItem {...expense} key={expense.id} />;
-      })}
-    </Card>
-  );
+
+  if (filteredYear === undefined || filteredYear === "Show All") {
+    return (
+      <Card className="expenses">
+        <ExpensesFilter
+          selectedOption={filteredYear}
+          onSelectYear={selectYearHandler}
+        />
+        {props.data.map((expense) => {
+          return <ExpenseItem {...expense} key={expense.id} />;
+        })}
+      </Card>
+    );
+  } else {
+    return (
+      <Card className="expenses">
+        <ExpensesFilter
+          selectedOption={filteredYear}
+          onSelectYear={selectYearHandler}
+        />
+        {props.data
+          .filter(
+            (expense) => expense.date.getFullYear().toString() === filteredYear
+          )
+          .map((expense) => {
+            return <ExpenseItem {...expense} key={expense.id} />;
+          })}
+      </Card>
+    );
+  }
 };
 
 export default Expenses;
