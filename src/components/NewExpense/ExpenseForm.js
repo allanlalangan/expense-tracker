@@ -28,6 +28,7 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label htmlFor="title">Title</label>
           <input
+            required
             id="title"
             type="text"
             value={title}
@@ -37,6 +38,7 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label htmlFor="amount">Amount</label>
           <input
+            required
             id="amount"
             type="number"
             min="0.01"
@@ -48,6 +50,7 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label htmlFor="date">Date</label>
           <input
+            required
             id="date"
             type="date"
             min="2019-01-01"
