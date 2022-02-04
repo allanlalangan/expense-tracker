@@ -5,27 +5,27 @@ import Card from "../UI/Card";
 import "./Expenses_CourseTemplate.css";
 
 const Expenses = (props) => {
-  const [filteredYear, setFilteredYear] = useState();
+  const [filteredYear, setFilteredYear] = useState("Show All");
   const selectYearHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
 
   const allExpenses = props.data;
-  const filteredExpensesByYear = props.data.filter(
-    (expense) => expense.date.getFullYear().toString() === filteredYear
-  );
+  const displayedExpenses =
+    filteredYear === "Show All"
+      ? allExpenses
+      : props.data.filter(
+          (expense) => expense.date.getFullYear().toString() === filteredYear
+        );
 
+  console.log(displayedExpenses);
   return (
     <Card className="expenses">
       <ExpensesFilter
         selectedOption={filteredYear}
         onSelectYear={selectYearHandler}
       />
-      {filteredYear === "Show All" || filteredYear === undefined ? (
-        <ExpensesList items={allExpenses} />
-      ) : (
-        <ExpensesList items={filteredExpensesByYear} />
-      )}
+      <ExpensesList items={displayedExpenses} />
     </Card>
   );
 };
